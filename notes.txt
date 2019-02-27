@@ -1,0 +1,28 @@
+server
+	cand primeste cerere de la client:
+		
+		apeleaza serviciu 1
+		apeleaza serviciu 2
+		apeleaza serviciu 3 (cu raspunsurile de la serv1, serv2)
+		se returneaza raspunsul catre client
+
+		cererea si raspunsul in format html ??? sau json..?
+
+client
+
+https://profs.info.uaic.ro/~gcalancea/cloud-computing/Week1.pdf
+
+https://www.service-architecture.com/articles/web-services/web_services_explained.html
+http://www.splashbase.co/api#images_random
+https://www.geeksforgeeks.org/get-post-requests-using-python/
+https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
+https://www.manageengine.com/products/applications_manager/web-services-management.html
+
+https://blog.cloudflare.com/introducing-http2/
+
+
+
+https://medium.freecodecamp.org/best-practices-for-building-api-keys-97c26eabfea9
+https://docs.microsoft.com/en-us/graph/json-batching
+
+https://pymotw.com/3/urllib.request/

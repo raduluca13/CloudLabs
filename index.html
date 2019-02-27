@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form id="getByIdForm" action="" method="">
+        <label for="addImgLbl">Get image by id
+            <input id="numberId" type="text">
+        </label>
+        <input type="submit" value="GET">
+    </form>
+    <button id="randomBtn">Random.org (1,10)</button>
+    <button id="getRandomImg">Get Image</button>
+    <button id="useServiceBtn">Send Request</button>
+    <button id="checkMetricsBtn">Check history</button>
+    <button id="checkScanResultBtn">Check Scan Result</button>
+    <button id="killBtn">Kill it</button>
+    <p>Random number: <span id="random"></span></p>
+    <div id="serviceResults">
+        <p>Your number is: <span id="randomNumber"></span></p>
+        <img id="img1"/>
+        <p>Scan id:  <span id="scanId"></span></p>
+        <p>Resource: <span id="res"></span></p>
+    </div>
+    <p>Scan result: <span id="scanResult"></span></p>
+
+    
+    <script>
+        function getImage(){
+            let requestStartTime = Date.now()
+            console.log("start time: ", requestStartTime)
+            let req = new XMLHttpRequest()
+            req.open("GET", "/getImage")
+            req.onreadystatechange = function (ev){
+                responseObj = ev.target
+                
+                switch(responseObj.readyState){
+                    case 4: // all good
+                        let res = JSON.parse(responseObj.response)
+                        console.log("responseParsed : ", res)
+                        let responseTime = Date.now()
+                        console.log("end time", responseTime)
+                        let duration = responseTime - requestStartTime
+                        console.log(`latency: ${duration}ms`)
+                        let img = document.getElementById("img1")
+                        img.style.width = "200px";
+                        img.style.height = "200px";
+                        img.src = res["url"]
+                        break;
+                    default:
+                        break;
+                }
+            }
+            req.send()
+        }
+        function consumeApi(){
+            let requestStartTime = Date.now()
+            let req = new XMLHttpRequest()
+            req.open("GET", "/useService")
+            req.addEventListener("load", function(event){
+                console.log("respo ", event.target.response)
+                let res = JSON.parse(event.target.response)
+                console.log("parsed", res)
+                let img = document.getElementById("img1")
+                img.style.width = "200px";
+                img.style.height = "200px";
+                img.src = res["src"]
+                document.getElementById("randomNumber").textContent = res["number"]
+                document.getElementById("scanId").textContent = res["scan_id"]
+                document.getElementById("res").textContent = res["resource"]
+            })
+            req.addEventListener("error", function(event){
+                console.log("error", event)
+            })
+            req.send()
+        }
+        function checkMetrics(){
+            let requestStartTime = Date.now()
+            let req = new XMLHttpRequest()
+            req.open("GET", "/metrics")
+            req.addEventListener("load", function (ev){
+                responseObj = ev.srcElement
+                console.log("response:", responseObj.response)
+                // let res = JSON.parse(responseObj.response)
+                // console.log("parsed", res)
+            })
+            req.addEventListener("error", function(ev){
+                console.log("error", ev)
+            })
+            req.send()
+        }
+
+        function checkScanResult(){
+            let scanId = document.getElementById("scanId")
+            let res = document.getElementById("res")
+            console.log("Scan id", scanId.innerText);
+            let requestStartTime = Date.now()
+            let req = new XMLHttpRequest()
+            req.open("POST", "/checkScanResult")
+            req.addEventListener("load", function (ev){
+                response = ev.target.response                
+                document.getElementById("scanResult").innerText = response
+                
+            })
+            req.addEventListener("error", function(ev){
+                console.log("error", ev)
+            })
+            // req.send(JSON.stringify({))
+            let data = {
+                'scan_id': scanId.innerText,
+                // 'scan_id': 'fb9740b788d86c6156ab4076b23fd5f8425c29155062af4d187a87f03b7f2590-1551225348',
+                'resource': res.innerText
+                // 'resource': 'fb9740b788d86c6156ab4076b23fd5f8425c29155062af4d187a87f03b7f2590'
+            }
+            req.send(JSON.stringify(data))
+        }
+        function getRandom(){
+            let requestStartTime = Date.now()
+            let req = new XMLHttpRequest()
+            req.open("GET", "/getRandom")
+            req.addEventListener("load", function(event){
+                console.log(event)
+                document.getElementById("random").innerText = event.srcElement.response
+                let requestEndTime = Date.now()
+                let duration = requestEndTime - requestStartTime
+                console.log(`latency: ${duration}ms`)
+            })
+            req.addEventListener("error", function(){
+                console.log("error")
+            })
+            req.send()
+        }
+        function killAll(){
+            batches = []
+            for(let i=0; i<5;i++){
+                let apiRequest = fetch('/getRandom').then(function(response){ 
+                    return response.json()
+                });
+                batches.push(apiRequest)
+            }
+            
+
+            let batchResult = {};
+            let all = Promise.all(batches).then(function(values){
+                for(let i=0; i<5; i++){
+                    batchResult[`x${i}`]=values[i]
+                }
+            }).then(function(response){
+                console.log(response)
+            });
+            console.log(all)
+
+        }
+        let form = document.getElementById('getByIdForm')
+        form.addEventListener("submit", function(event) {
+            event.preventDefault()
+            let val = document.querySelector("#numberId").value
+            //let val = event.srcElement[0].value
+            let rq = new XMLHttpRequest()
+            rq.open("POST", "/getImage")
+            rq.addEventListener("load", function(ev){
+                let img = document.getElementById("img1")
+                img.style.width = "200px";
+                img.style.height = "200px";
+                img.src = ev.srcElement.responseText
+            })
+            // rq.send(JSON.stringify(`{'id': ${val}}`))
+            rq.send(JSON.stringify(`id=${val}`))
+        }, false);
+
+        let randomBtn = document.getElementById("randomBtn")
+        randomBtn.addEventListener("click", getRandom)
+
+        let getRandomImg = document.getElementById("getRandomImg")
+        getRandomImg.addEventListener("click", getImage)
+
+        let useServiceBtn = document.getElementById("useServiceBtn")
+        useServiceBtn.addEventListener("click", consumeApi)
+
+        let checkMetricsBtn = document.getElementById("checkMetricsBtn")
+        checkMetricsBtn.addEventListener("click", checkMetrics)
+
+        let checkResponseBtn = document.getElementById("checkScanResultBtn")
+        checkResponseBtn.addEventListener("click", checkScanResult)
+        
+        let killBtn = document.getElementById("killBtn")
+        killBtn.addEventListener("click", killAll)
+    </script>
+</body>
+</html>

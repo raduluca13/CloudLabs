@@ -1,0 +1,56 @@
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273457.3945684
+
+endTime: 1551273457.8140903
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[1],"completionTime":"2019-02-27 03:17:37Z"},"bitsUsed":3,"bitsLeft":249997,"requestsLeft":999,"advisoryDelay":960},"id":13}'
+latency: 0.4195218086242676
+
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273526.6912954
+
+endTime: 1551273527.0929797
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[2],"completionTime":"2019-02-27 03:18:46Z"},"bitsUsed":3,"bitsLeft":249994,"requestsLeft":998,"advisoryDelay":1160},"id":13}'
+latency: 0.4016842842102051
+
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273678.5829291
+
+endTime: 1551273678.8980112
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[3],"completionTime":"2019-02-27 03:21:18Z"},"bitsUsed":3,"bitsLeft":249991,"requestsLeft":997,"advisoryDelay":760},"id":13}'
+latency: 0.3150820732116699
+
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273717.2645004
+
+endTime: 1551273717.629421
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[2],"completionTime":"2019-02-27 03:21:56Z"},"bitsUsed":3,"bitsLeft":249988,"requestsLeft":996,"advisoryDelay":600},"id":13}'
+latency: 0.36492061614990234
+
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273920.3279066
+
+endTime: 1551273920.6463542
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[8],"completionTime":"2019-02-27 03:25:19Z"},"bitsUsed":3,"bitsLeft":249982,"requestsLeft":994,"advisoryDelay":560},"id":13}'
+latency: 0.3184475898742676
+
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273940.0456026
+
+endTime: 1551273940.3997204
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[1],"completionTime":"2019-02-27 03:25:39Z"},"bitsUsed":3,"bitsLeft":249979,"requestsLeft":993,"advisoryDelay":670},"id":13}'
+latency: 0.35411787033081055
+
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: b'{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551273942.0448768
+
+endTime: 1551273942.4120831
+response: b'{"jsonrpc":"2.0","result":{"random":{"data":[8],"completionTime":"2019-02-27 03:25:41Z"},"bitsUsed":3,"bitsLeft":249976,"requestsLeft":992,"advisoryDelay":1470},"id":13}'
+latency: 0.367206335067749
+

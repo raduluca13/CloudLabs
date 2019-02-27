@@ -1,0 +1,45 @@
+Wed, 27 Feb 2019 11:01:25 +0000
+Bkav
+
+Wed, 27 Feb 2019 11:03:00 +0000
+{'detected': False, 'version': '1.3.0.9899', 'result': None, 'update': '20190226'}
+
+Wed, 27 Feb 2019 11:04:56 +0000
+False
+
+Wed, 27 Feb 2019 11:07:42 +0000
+False
+
+Wed, 27 Feb 2019 11:08:34 +0000
+False
+
+Wed, 27 Feb 2019 11:09:04 +0000
+False
+
+Wed, 27 Feb 2019 11:10:39 +0000
+False
+
+Wed, 27 Feb 2019 11:11:47 +0000
+False
+
+Wed, 27 Feb 2019 13:22:20 +0000
+False
+
+Wed, 27 Feb 2019 13:26:09 +0000
+False
+
+Wed, 27 Feb 2019 13:26:57 +0000
+False
+
+Wed, 27 Feb 2019 13:28:16 +0000
+False
+
+Wed, 27 Feb 2019 13:28:52 +0000
+False
+
+Wed, 27 Feb 2019 14:12:06 +0000
+False
+
+Thu, 28 Feb 2019 01:10:11 +0000
+False
+

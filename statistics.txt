@@ -1,0 +1,13 @@
+serviceUrl: https://api.random.org/json-rpc/2/invoke
+data: '{"jsonrpc": "2.0", "method": "generateIntegers", "params": {"apiKey": "3635cafe-f195-4206-8852-dd80ce4b4ce6", "n": 1, "min": 1, "max": 10}, "id": 13}'
+startTime: 1551255154.2681794endTime: 1551255196.6737728
+response: '{"jsonrpc":"2.0","result":{"random":{"data":[7],"completionTime":"2019-02-26 22:13:15Z"},"bitsUsed":3,"bitsLeft":249901,"requestsLeft":967,"advisoryDelay":680},"id":13}'
+latency: 42.405593395233154serviceUrl: http://www.splashbase.co/api/v1/images/{id}
+data: ''
+startTime: 1551255196.6737728endTime: 1551255197.0816076
+response: '{"jsonrpc":"2.0","result":{"random":{"data":[7],"completionTime":"2019-02-26 22:13:15Z"},"bitsUsed":3,"bitsLeft":249901,"requestsLeft":967,"advisoryDelay":680},"id":13}'
+latency: 0.4078347682952881serviceUrl: https://www.virustotal.com/vtapi/v2/file/scan
+data: ''
+startTime: 1551255198.2565494endTime: 1551255199.4865198
+response: <Response [200]>
+latency: 1.2299704551696777serviceUrl: https://api.random.org/json-rpc/2/invoke
